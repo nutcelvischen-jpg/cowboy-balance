@@ -1,4 +1,4 @@
-手機終結者 v0.4.0
+手機終結者 v0.5.0
 專案：/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance
 電腦預覽：http://localhost:8094/
 完整打包：/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance.zip
@@ -30,3 +30,8 @@
 /Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/voice
 /Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/voice_lines.json
 /Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/scripts/generate_voice.py
+
+視覺甩動模組：
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/motion.js
+新版完整封裝：
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance-v0.5.0.zip

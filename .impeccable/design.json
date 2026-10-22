@@ -384,23 +384,16 @@
         "purpose": "Countdown text; removed for reduced motion."
       }
     ],
-    "motion": [
-      {
-        "name": "action-transition",
-        "value": "background .15s, transform .15s",
-        "purpose": "Primary and resume hover/press."
-      },
-      {
-        "name": "button-press",
-        "value": "translateY(2px)",
-        "purpose": "Primary and resume active press."
-      },
-      {
-        "name": "reduced-motion",
-        "value": "prefers-reduced-motion: reduce",
-        "purpose": "Suppresses bounce, dust, CSS transitions and countdown shadow; essential lean, fall and reframing remain."
-      }
-    ],
+    "motion": {
+      "version": "0.5.0",
+      "source": [
+        "motion.js",
+        "scene.js"
+      ],
+      "description": "Diagonal bull, torso-centred bucking, attached rider seat, bounded hoof floor correction; presentation-only. HUD and audio unchanged.",
+      "evidence": "docs/motion-layouts.png",
+      "review": "Browser viewport inspection; no new independent review or physical-device test."
+    },
     "breakpoints": [
       {
         "name": "wide",

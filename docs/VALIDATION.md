@@ -41,3 +41,13 @@
 - ffprobe 確認 8 個 MP3 皆 24kHz mono、長度 0.76–2.61 秒。全部音檔位於 voice/；生成使用環境變數金鑰，未寫入專案。
 - 尚未以真人母語者驗證台語發音；尚未在實體 iPhone／Android 上驗證混音與喇叭聽感。
 - docs/audio-preview.png 為試聽操作證據。
+
+
+## v0.5.0 斜側面強烈甩動（2026-10-22）
+
+- 28 項自動測試通過。新增動作有限值與範圍、雙向強烈側翻、呈現不修改模型、暫停時間固定姿勢、減少動態抑制跳躍及鏡頭衝擊。
+- 瀏覽器固定甩動 fixture 驗證 390×844、320×568、844×390 的左右姿勢，牛仔、牛角、四腿均在場景內；docs/motion-layouts.png。
+- 同三尺寸的左右落地終點完整顯示；docs/landings-v05.png。正常斜側面構圖：docs/diagonal-bull.png。
+- 正式 app.js 加模擬感測器，從啟用、校正、倒數到五階段通關 30.0 秒；無 console error/warn。docs/motion-win-test.png。正式最高分未修改。
+- scene.js、motion.js 語法及 git diff --check 通過。沿用現有 Blender GLB，未重新建模；未變更 model.js、sensor.js、audio.js。
+- 未在實體 iPhone／Android 驗證感測器、效能或動態舒適度；瀏覽器尺寸測試不等同實機測試。

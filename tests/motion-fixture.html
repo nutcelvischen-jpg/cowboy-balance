@@ -1,0 +1,11 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><base href="../"><link rel="stylesheet" href="styles.css"><title>Strong buck motion fixture</title></head><body><script type="module">
+import {Arena} from './scene.js';
+import {Rodeo} from './model.js';
+const template=new DOMParser().parseFromString(await (await fetch('index.html')).text(),'text/html');
+document.body.append(template.querySelector('main'));
+const $=id=>document.getElementById(id);
+const arena=new Arena($('scene'));await arena.ready;$('asset-status').hidden=true;
+const game=new Rodeo();Object.assign(game,{phase:'playing',time:25,lastBuck:24.88,lastStrength:2.8,lastDirection:new URLSearchParams(location.search).get('side')==='left'?-1:1,angle:0});
+$('game').dataset.state='playing';$('time').textContent='25.0';$('level').textContent='最後暴走';$('heading').textContent='撐住！';$('hint').textContent='傾斜救回牛仔';$('primary').hidden=true;$('secondary').hidden=true;$('mode-note').textContent='動作驗證 · 固定最大甩動附近';$('cue').textContent=game.lastDirection>0?'往左救！':'往右救！';
+new ResizeObserver(()=>{arena.resize();arena.draw(game,0);}).observe($('arena'));arena.draw(game,0);
+</script></body></html>

@@ -1,6 +1,7 @@
 import * as T from './vendor/three.module.js';
 import {GLTFLoader} from './vendor/GLTFLoader.js';
 import {clamp} from './model.js';
+import {bullPose} from './motion.js';
 const C={bull:0x754529,dark:0x3a2923,nose:0xa97451,cream:0xf9dc99,shirt:0xd46931,pants:0x305b69,hat:0xc58a43,skin:0xc78b61,red:0xae3928};
 export class Arena {
  constructor(canvas){
@@ -8,7 +9,7 @@ export class Arena {
   this.renderer=new T.WebGLRenderer({canvas,antialias:true,alpha:false,powerPreference:'low-power'});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.8));this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=T.PCFSoftShadowMap;this.renderer.setClearColor(0x234b4e);this.renderer.outputColorSpace=T.SRGBColorSpace;this.renderer.toneMapping=T.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.15;
   this.scene=new T.Scene();this.scene.fog=new T.Fog(0x234b4e,16,35);this.camera=new T.PerspectiveCamera(38,1,.1,70);this.camera.position.set(0,4.8,10.5);this.camera.lookAt(0,1.55,0);
   const hemi=new T.HemisphereLight(0xffecc5,0x284248,1.8);this.scene.add(hemi);const sun=new T.DirectionalLight(0xffe0b8,2.6);sun.position.set(-5,9,6);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-8;sun.shadow.camera.right=8;sun.shadow.camera.top=8;sun.shadow.camera.bottom=-8;sun.shadow.bias=-.001;this.scene.add(sun);const rim=new T.DirectionalLight(0xffba66,1.4);rim.position.set(3,5,-4);this.scene.add(rim);
-  this.materials=new Map();this.world();this.makeBull();this.makeRider();this.resize();this.ready=this.loadCharacters();
+  this.materials=new Map();this.world();this.makeBull();this.makeRider();this.attachBullRig();this.resize();this.ready=this.loadCharacters();
  }
  async loadCharacters(){
   const loader=new GLTFLoader();
@@ -22,9 +23,16 @@ export class Arena {
   const head=node(bull,'Head'),tail=node(bull,'Tail'),legs=['LF','LB','RF','RB'].map(n=>node(bull,'Leg_'+n));
   const torso=node(rider,'Torso'),arm=node(rider,'Arm'),scarf=node(rider,'Scarf');
   for(const root of [bull,rider])root.traverse(o=>{if(o.isMesh){o.castShadow=true;o.receiveShadow=true;}});
+  this.scene.remove(this.bullRig);
   for(const old of [this.bull,this.rider]){this.scene.remove(old);old.traverse(o=>{if(o.isMesh)o.geometry.dispose();});}
-  Object.assign(this,{bull,rider,head,tail,legs,torso,arm,scarf});this.scene.add(bull,rider);
+  Object.assign(this,{bull,rider,head,tail,legs,torso,arm,scarf});this.scene.add(bull,rider);this.attachBullRig();
   this.canvas.dataset.characters='blender';
+ }
+ attachBullRig(){
+  // Rotate around the torso, not a point underneath the hooves.
+  this.bullRig=new T.Group();this.scene.add(this.bullRig);this.bullRig.add(this.bull);
+  this.bull.position.set(0,-1.35,0);this.bullRig.position.set(0,1.35,0);
+  this.bullRig.rotation.order='YXZ';
  }
  mat(color){if(!this.materials.has(color))this.materials.set(color,new T.MeshStandardMaterial({color,roughness:1,flatShading:true}));return this.materials.get(color);}
  mesh(geo,color,parent,pos=[0,0,0],scale=[1,1,1]){const o=new T.Mesh(geo,this.mat(color));o.position.set(...pos);o.scale.set(...scale);o.castShadow=true;o.receiveShadow=true;parent.add(o);return o;}
@@ -68,18 +76,39 @@ export class Arena {
   const r=this.canvas.getBoundingClientRect();if(!r.width||!r.height)return;
   this.renderer.setSize(r.width,r.height,false);this.camera.aspect=r.width/r.height;this.camera.fov=36;
   const topSpace=r.height<400?92:128,usable=Math.max(180,r.height-topSpace-22);
-  const height=Math.max(4.8*r.height/usable,3.4/this.camera.aspect);
+  const height=Math.max(5.1*r.height/usable,4.2/this.camera.aspect);
   const distance=height/(2*Math.tan(T.MathUtils.degToRad(18)));
   this.cameraOffset=new T.Vector3(.42,.25,1).normalize().multiplyScalar(distance);this.viewWidth=height*this.camera.aspect;this.camera.position.copy(this.cameraOffset).add(new T.Vector3(0,2,0));this.camera.lookAt(0,2,0);
   this.camera.setViewOffset(r.width,r.height,0,-topSpace/2,r.width,r.height);this.camera.updateProjectionMatrix();
  }
  draw(game,now){
-  const t=['ready','won'].includes(game.phase)?now*.0007:game.time;const running=game.phase==='playing';const kick=running?Math.max(0,1-(game.time-game.lastBuck)/.52):0;const energy=running?(game.recovery ? .35 : 1+game.level*.16):0;const bounce=this.reduced?0:Math.abs(Math.sin(t*6.5))*(running?.13*energy:.025)+Math.sin(kick*Math.PI)*.42;
-  this.bull.position.y=bounce;this.bull.rotation.z=running?(Math.sin(t*5.3)*.085*energy-kick*game.lastDirection*.29+(game.feint||0)*.13)*(this.reduced ? .35 : 1):Math.sin(t)*.025;this.bull.rotation.x=this.reduced?0:kick*.28;this.head.rotation.x=Math.sin(t*3.6)*.06;this.tail.rotation.y=Math.sin(t*3)*.25;
-  this.legs.forEach((leg,i)=>{leg.rotation.x=running?Math.sin(t*6.5+(i%2)*Math.PI)*(.20+kick*.4)*(this.reduced ? .35 : 1):0;});
-  const falling=['falling','finished'].includes(game.phase);this.rider.position.set(0,2.13+bounce,-.18);this.rider.rotation.set(0,0,-game.angle*.65);this.torso.rotation.x=running?Math.sin(t*4.5)*.04:0;this.arm.rotation.z=Math.sin(t*3)*.15;this.scarf.rotation.x=Math.sin(t*5)*.3;
-  if(falling){const p=clamp(game.fallTime/1.05,0,1),side=game.fallDirection||1;this.rider.position.x=side*p*2.5;this.rider.position.y=2.13+Math.sin(p*Math.PI)*1.1-p*1.85;this.rider.rotation.z=-side*p*1.5;this.rider.rotation.x=p*.7;
-   this.rider.updateMatrixWorld(true);const bounds=new T.Box3().setFromObject(this.rider);if(bounds.min.y<.04)this.rider.position.y+=.04-bounds.min.y;
+  const t=['ready','won'].includes(game.phase)?now*.0007:game.time;
+  const running=game.phase==='playing',pose=bullPose(game,now,this.reduced);
+  this.bullRig.position.set(0,1.35+pose.lift,0);
+  this.bullRig.rotation.set(pose.pitch,pose.yaw,pose.roll,'YXZ');
+  this.head.rotation.set(pose.headPitch,pose.headYaw,-pose.roll*.18);
+  this.tail.rotation.y=pose.tail;
+  this.legs.forEach((leg,i)=>{leg.rotation.set(pose.legs[i].pitch,0,pose.legs[i].roll);});
+  // Raise the rig only when necessary to keep the kicking hooves above the sand.
+  this.bullRig.updateMatrixWorld(true);
+  const bullBounds=new T.Box3().setFromObject(this.bull);
+  this.bullRig.position.y+=Math.max(0,.04-bullBounds.min.y);
+  this.bullRig.updateMatrixWorld(true);
+  const seat=this.bullRig.localToWorld(new T.Vector3(0,.78,-.18));
+  this.rider.position.copy(seat);
+  this.rider.quaternion.copy(this.bullRig.quaternion).multiply(new T.Quaternion().setFromEuler(new T.Euler(-pose.pitch*.45,0,-pose.roll*.65-game.angle*.65)));
+  this.torso.rotation.x=running?Math.sin(t*6.5)*.06:0;
+  this.arm.rotation.z=Math.sin(t*(running?6:3))*(running?.30:.15);
+  this.scarf.rotation.x=Math.sin(t*8)*(running?.55:.2);
+  const falling=['falling','finished'].includes(game.phase);
+  if(falling){
+   const p=clamp(game.fallTime/1.05,0,1),side=game.fallDirection||1;
+   this.rider.position.x=seat.x*(1-p)+side*p*2.5;
+   this.rider.position.y=seat.y+Math.sin(p*Math.PI)*1.1-p*1.85;
+   const landing=new T.Quaternion().setFromEuler(new T.Euler(p*.7,pose.yaw,-side*p*1.5));
+   this.rider.quaternion.slerp(landing,p);
+   this.rider.updateMatrixWorld(true);const bounds=new T.Box3().setFromObject(this.rider);
+   if(bounds.min.y<.04)this.rider.position.y+=.04-bounds.min.y;
   }
   const dustAge=game.time-game.lastBuck;this.dust.forEach((d,i)=>{d.visible=running&&dustAge<.65&&!this.reduced;if(d.visible){const a=i*2.399;const r=.6+dustAge*(1+i%3);d.position.set(Math.sin(a)*r,.05+Math.sin(dustAge/.65*Math.PI)*.25,Math.cos(a)*r);d.scale.setScalar((1-dustAge/.65)*(.05+(i%3)*.02));}});
   // Reframe a fall to include the landing; keep normal play camera fixed.
@@ -93,7 +122,7 @@ export class Arena {
   }
   this.camera.position.copy(this.cameraOffset).add(target);this.camera.lookAt(target);
   // Brief, bounded impact kick: HUD and balance meter remain stationary.
-  if(running&&!this.reduced){const shake=kick*.045;this.camera.position.x+=Math.sin(t*38)*shake;this.camera.position.y+=Math.cos(t*31)*shake*.6;}
+  if(running&&!this.reduced){const shake=pose.impact*.055;this.camera.position.x+=Math.sin(t*38)*shake;this.camera.position.y+=Math.cos(t*31)*shake*.6;}
   this.camera.zoom=1-fallProgress*(1-Math.min(1,this.viewWidth/8.6));this.camera.updateProjectionMatrix();
   this.renderer.render(this.scene,this.camera);
  }

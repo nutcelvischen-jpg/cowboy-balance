@@ -11,3 +11,5 @@
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}#countdown{text-shadow:none}}
 
 @media(min-width:700px) and (min-height:561px){#controls{padding-left:max(24px,calc((100% - 460px)/2));padding-right:max(24px,calc((100% - 460px)/2))}}
+
+#voice-caption{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:3;max-width:calc(100% - 32px);margin:0;padding:8px 14px;border-radius:8px;background:#183c3ef2;color:var(--paper);font-size:13px;font-weight:700;text-align:center;pointer-events:none}#game[data-voice="true"] #cue{bottom:58px}

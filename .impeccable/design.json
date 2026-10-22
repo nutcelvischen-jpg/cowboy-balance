@@ -414,7 +414,25 @@
         "name": "short-landscape",
         "value": "(orientation:landscape) and (max-height:560px)"
       }
-    ]
+    ],
+    "audio": {
+      "revision": "0.4.0",
+      "musicTempoBpm": [
+        124,
+        134,
+        144,
+        154,
+        164
+      ],
+      "voice": "Algenib",
+      "voiceManifest": "voice_lines.json",
+      "preview": "audio-preview.html",
+      "controls": [
+        "music-only toggle",
+        "global mute"
+      ],
+      "captions": "actual voice playback only"
+    }
   },
   "components": [
     {

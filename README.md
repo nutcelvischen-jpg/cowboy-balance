@@ -1,6 +1,18 @@
 # 手機終結者 · Tilt Rodeo
 
-手機傾斜平衡遊戲 v0.3.0，使用 Blender 製作的卡通牛仔與牛。牛仔騎在持續甩動的牛上；往反方向傾斜手機，把重心拉回中央，挑戰 30 秒通關。這是獨立新專案，沒有修改敲釘遊戲。
+> 傾斜手機，穩住牛仔！挑戰 30 秒暴走騎牛存活紀錄！
+
+🎮 **線上試玩（手機／電腦皆可直接玩）**：  
+👉 **[https://nutcelvischen-jpg.github.io/cowboy-balance/](https://nutcelvischen-jpg.github.io/cowboy-balance/)**
+
+🗣️ **配音與電子音樂試聽頁**：  
+👉 **[https://nutcelvischen-jpg.github.io/cowboy-balance/audio-preview.html](https://nutcelvischen-jpg.github.io/cowboy-balance/audio-preview.html)**
+
+*(使用 HTTPS 網址可完整啟用手機陀螺儀／方向感測傾斜操控)*
+
+---
+
+手機傾斜平衡遊戲 v0.4.0，使用 Blender 製作的卡通牛仔與牛。牛仔騎在持續甩動的牛上；往反方向傾斜手機，把重心拉回中央，挑戰 30 秒通關。這是獨立新專案，沒有修改敲釘遊戲。
 
 ## 開啟
 
@@ -38,7 +50,7 @@ python3 server.py
 - 前四波最後 1.2 秒喘息，回到中央可加速恢復抓握力。
 - 最佳秒數存於這個瀏覽器的 localStorage；不需登入。
 - 暫停按鈕或 Escape 暫停；切到背景自動暫停，不會繼續扣時間。
-- 音效為本機合成的倒數、牛鈴、蹄聲、摔落聲，沒有配音或外部錄音。
+- 音效與電子配樂由 Web Audio 合成；台語老闆配音為預先產生的 8 個 MP3。遊戲執行不呼叫 TTS 服務。
 
 ## 檔案
 
@@ -51,7 +63,10 @@ python3 server.py
 | scene.js | GLB 模型載入、場景、甩動、摔落與落地鏡頭 |
 | assets/models/ | bull.glb、cowboy.glb，兩個可獨立替換的模型 |
 | models/ | Blender 原始檔、重建腳本與幾何檢查結果 |
-| audio.js | Web Audio 合成音效 |
+| audio.js | 電子音樂、音效、配音排程與混音 |
+| voice/ / voice_lines.json | 8 個台語 MP3、台詞、台羅與生成 prompt |
+| audio-preview.html | 配音及五種節奏強度試聽頁 |
+| scripts/generate_voice.py | 使用環境變數金鑰重建配音 |
 | vendor/ | 本地 Three.js 與 MIT 授權 |
 | assets/fonts/ | Rye 字體與 SIL Open Font License |
 | tests/ | 模型、感測器單元測試及尺寸預覽 |
@@ -71,7 +86,7 @@ npm test
 
 ## 上線檔案
 
-部署根目錄的 HTML / CSS / JS、icon.svg、.nojekyll、assets/ 和 vendor/ 即可。所有執行資源都是相對路徑，能放在網站的子路徑下。不要部署開發過程的 .impeccable/surfaces/ 與 review/；完整交付 ZIP 會排除這些內部紀錄。
+部署根目錄的 HTML / CSS / JS、icon.svg、.nojekyll、assets/、voice/ 和 vendor/ 即可。所有執行資源都是相對路徑，能放在網站的子路徑下。不要部署開發過程的 .impeccable/surfaces/ 與 review/；完整交付 ZIP 會排除這些內部紀錄。
 
 ## Blender 原始檔與重建
 
@@ -99,3 +114,23 @@ v0.2.0 介面改為深綠操控區、金色主按鈕與更清楚的平衡條。�
 平衡測試：100 個固定種子在 30/60/120 fps 下以即時回授控制全部通關；增加 200ms 回應延遲和輸入濾波後，100 個種子中有 46 次通關、54 次失敗。這是人工控制器模擬，**不是人類玩家勝率**，仍需實體手機試玩調整。
 
 `tests/challenge.html` 是使用正式 app.js 的模擬感測器自動操作頁，測試紀錄隔離於記憶體，不會寫入正式最高分。它不代表實機感測器驗證，亦不應作為上線遊戲入口。
+
+## v0.4.0 台語配音與電子音樂
+
+粗獷台灣老闆角色使用 Algenib 合成聲線，沿用先前敲釘遊戲的聲音方向。8 句台語台羅腳本見 `voice_lines.json`，配音共約 196 KB。開場在倒數時播放，第二到第五階段各喊一次，兩句摔落吐槽輪流出現，通關有獨立歡呼。同步字幕只在實際播音時顯示。
+
+音樂為此遊戲撰寫的合成節奏，不使用商業歌曲音檔：大鼓、拍手／軍鼓、hi-hat、低通鋸齒貝斯，第三階段起加入琶音。每階段依序 124／134／144／154／164 BPM；喘息階段減少聲部。配音與預告時會壓低音樂。
+
+右上方音符按鈕只關音樂；喇叭按鈕關全部聲音。暫停或切到背景會停止音樂和未完的配音。音樂只在點擊開始後播放；不會在載入頁面時自動發聲。
+
+試聽：http://localhost:8094/audio-preview.html
+
+重新產生（需 ffmpeg、ffprobe，以及有額度的環境變數 OPENROUTER_API_KEY）：
+
+```bash
+python3 scripts/generate_voice.py
+# 只重做通關台詞：
+python3 scripts/generate_voice.py win
+```
+
+程式從環境變數讀金鑰，不把金鑰放進前端或封裝檔。正常遊玩不需要金鑰。台羅詞彙參考：[教育部「拑牢牢」](https://sutian.moe.edu.tw/zh-hant/su/4023/)。TTS 的口音和情緒仍以試聽為準，沒有宣稱經真人母語者校音。

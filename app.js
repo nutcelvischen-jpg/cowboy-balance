@@ -2,14 +2,14 @@ import {Rodeo,clamp,ROUND_SECONDS} from './model.js';
 import {TiltController} from './sensor.js';
 import {AudioFX} from './audio.js';
 import {Arena} from './scene.js';
-const $=id=>document.getElementById(id),game=new Rodeo(),tilt=new TiltController(),audio=new AudioFX();
+const $=id=>document.getElementById(id),game=new Rodeo(),tilt=new TiltController(),audio=new AudioFX({onVoice:text=>{$('voice-caption').textContent=text;$('voice-caption').hidden=!text;$('game').dataset.voice=String(!!text);}});
 let assetsReady=false;
 let arena,state='ready',mode='touch',busy=false,count=0,lastCount=0,last=performance.now(),lastBuck=0,lastCue=0,lastDisplayed='',pauseReason='',best=0;
 let request=0;const holds=new Set();
 try{best=Number(localStorage.getItem('tilt-rodeo-terminator-best-v1')||0);if(!Number.isFinite(best)||best<0)best=0;}catch{}
 try{arena=new Arena($('scene'));new ResizeObserver(()=>arena.resize()).observe($('arena'));arena.ready.then(()=>{assetsReady=true;$('asset-status').hidden=true;render();}).catch(error=>{assetsReady=true;$('asset-status').textContent='角色載入失敗，暫用簡易角色；重新整理可重試。';console.warn('Character loading failed',error);render();});}catch(error){$('scene-error').hidden=false;$('primary').disabled=true;$('secondary').disabled=true;console.error('3D 場景初始化失敗',error);}
 const showError=message=>{$('error').textContent=message;$('error').hidden=!message;};
-function setState(next){state=next;$('game').dataset.state=next;render();}
+function setState(next){state=next;audio.setScene(next);$('game').dataset.state=next;render();}
 function clearInput(){holds.clear();for(const id of ['left','right'])$(id).classList.remove('held');}
 function ready(){request++;busy=false;game.reset();clearInput();$('pause-cover').hidden=true;showError('');setState('ready');}
 async function enableTilt(){
@@ -18,7 +18,7 @@ async function enableTilt(){
  catch(e){if(token!==request)return;setState('ready');showError(e.message||'無法啟用感測器，請改用觸控。');}
  finally{if(token===request){busy=false;render();}}
 }
-function countdown(){audio.init();showError('');clearInput();game.reset();count=3;lastCount=3;audio.count();setState('countdown');}
+function countdown(){audio.init();showError('');clearInput();game.reset();count=3;lastCount=3;audio.count();setState('countdown');audio.countdown();}
 function primary(){
  if(state==='ready')enableTilt();
  else if(state==='calibrate'){try{tilt.calibrate();countdown();}catch(e){showError(e.message);}}
@@ -33,7 +33,7 @@ hold('left','left');hold('right','right');
 window.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','a','d','A','D'].includes(e.key)&&mode==='touch'&&state==='playing'){e.preventDefault();holds.add(['ArrowLeft','a','A'].includes(e.key)?'left':'right');}if(e.code==='Escape'&&['playing','countdown'].includes(state))pause('manual');});
 window.addEventListener('keyup',e=>{if(['ArrowLeft','a','A'].includes(e.key))holds.delete('left');if(['ArrowRight','d','D'].includes(e.key))holds.delete('right');});
 function pause(reason='manual'){
- if(!['playing','countdown'].includes(state)||game.paused)return;game.paused=true;pauseReason=reason;clearInput();$('pause-cover').hidden=false;
+ if(!['playing','countdown'].includes(state)||game.paused)return;game.paused=true;audio.pause();pauseReason=reason;clearInput();$('pause-cover').hidden=false;
  $('pause-hint').textContent=reason==='sensor'?'傾斜資料中斷，已暫停。拿穩手機，繼續時會重新校正。':reason==='rotation'?'手機方向改變了。拿穩手機，繼續時會重新校正。':'遊戲已暫停，時間不會繼續跑。';
  $('resume').focus();render();
 }
@@ -42,12 +42,13 @@ $('resume').addEventListener('click',async()=>{
  audio.init();if(mode==='tilt'){
   try{await tilt.enable();tilt.calibrate();}catch(e){$('pause-hint').textContent=e.message;return;}
  }
- game.paused=false;clearInput();$('pause-cover').hidden=true;last=performance.now();$('pause').focus();render();
+ game.paused=false;audio.resume();clearInput();$('pause-cover').hidden=true;last=performance.now();$('pause').focus();render();
 });
 $('restart').addEventListener('click',ready);
 $('sound').addEventListener('click',()=>{audio.init();audio.mute();$('sound').setAttribute('aria-pressed',String(audio.muted));$('sound').setAttribute('aria-label',audio.muted?'開啟音效':'靜音音效');});
+$('music').addEventListener('click',()=>{audio.init();audio.toggleMusic();$('music').setAttribute('aria-pressed',String(!audio.musicEnabled));$('music').setAttribute('aria-label',audio.musicEnabled?'關閉電子音樂':'開啟電子音樂');});
 window.addEventListener('blur',()=>{clearInput();pause('background');});
-document.addEventListener('visibilitychange',()=>{if(document.hidden)pause('background');last=performance.now();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){pause('background');audio.cancelVoice();}last=performance.now();});
 const rotate=()=>pause('rotation');window.addEventListener('orientationchange',rotate);screen.orientation?.addEventListener('change',rotate);
 // Keep focus inside the paused task; this overlay is the only modal surface.
 $('pause-cover').addEventListener('keydown',e=>{if(e.key!=='Tab')return;const a=$('resume'),b=$('restart');if(e.shiftKey&&document.activeElement===a){e.preventDefault();b.focus();}else if(!e.shiftKey&&document.activeElement===b){e.preventDefault();a.focus();}});
@@ -80,7 +81,7 @@ function frame(now){
   }else if(state==='playing'||state==='falling'){
    if(state==='playing'&&mode==='tilt'&&tilt.stale)pause('sensor');else{
     const input=mode==='tilt'?tilt.update(Math.min(dt,.1)):(holds.has('right')?1:0)-(holds.has('left')?1:0);
-    game.tick(dt,input);
+    const previousLevel=game.level;game.tick(dt,input);if(game.phase==='playing'&&game.level!==previousLevel)audio.stage(game.level);
     if(game.bucks!==lastBuck){audio.kick();lastBuck=game.bucks;}
     if(game.cue && !lastCue)audio.cue();lastCue=game.cue;
     if(game.phase==='falling'&&state!=='falling'){audio.fall();clearInput();setState('falling');}
@@ -88,6 +89,6 @@ function frame(now){
    }
   }
  }
- render();arena?.draw(game,now);requestAnimationFrame(frame);
+ audio.update(game);render();arena?.draw(game,now);requestAnimationFrame(frame);
 }
 render();requestAnimationFrame(frame);

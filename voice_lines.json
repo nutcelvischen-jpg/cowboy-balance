@@ -1,0 +1,62 @@
+{
+  "model": "google/gemini-3.8-flash-tts",
+  "revision": "rodeo-v1-20261022",
+  "lines": {
+    "intro": {
+      "voice": "Algenib",
+      "subtitle": "拑牢牢！出發啦！",
+      "tailo": "Khînn-tiâu-tiâu! Tshut-huat--lah!",
+      "text": "[VOICE CHARACTER: A 55-year-old male Taiwanese night-market rodeo-game stall owner, calling loudly across a busy outdoor stall. Very low, thick, coarse, gravelly baritone; audible raspy vocal edge, chest resonance and a big diaphragm-supported projection. Rough everyday street delivery, relaxed local swagger, cheeky and friendly. LANGUAGE: Native Taiwan Taiwanese Hokkien / Tai-gi, colloquial southern Taiwan rhythm, natural tone sandhi. Read the Tai-lo romanized script as spoken Taiwanese, never as English syllables. PERFORMANCE: Speak to a player standing at your stall, with punchy consonants and broad, earthy intonation. Maintain the same hefty older male character, even while teasing. Dry solo speech, no background crowd, no music, no added words, do not read instructions. A rough energetic invitation, punchy chest voice. 1.5 to 2 seconds.]\nKhînn-tiâu-tiâu! Tshut-huat--lah!",
+      "mastering": "boss_shout"
+    },
+    "again": {
+      "voice": "Algenib",
+      "subtitle": "閣來！閣來！",
+      "tailo": "Koh lâi! Koh lâi!",
+      "text": "[VOICE CHARACTER: A 55-year-old male Taiwanese night-market rodeo-game stall owner, calling loudly across a busy outdoor stall. Very low, thick, coarse, gravelly baritone; audible raspy vocal edge, chest resonance and a big diaphragm-supported projection. Rough everyday street delivery, relaxed local swagger, cheeky and friendly. LANGUAGE: Native Taiwan Taiwanese Hokkien / Tai-gi, colloquial southern Taiwan rhythm, natural tone sandhi. Read the Tai-lo romanized script as spoken Taiwanese, never as English syllables. PERFORMANCE: Speak to a player standing at your stall, with punchy consonants and broad, earthy intonation. Maintain the same hefty older male character, even while teasing. Dry solo speech, no background crowd, no music, no added words, do not read instructions. A cheeky booming challenge, two rapid calls. 0.8 to 1.4 seconds.]\nKoh lâi! Koh lâi!",
+      "mastering": "boss_gravel"
+    },
+    "trick": {
+      "voice": "Algenib",
+      "subtitle": "莫予伊騙去！",
+      "tailo": "Mài hōo i phiàn--khì!",
+      "text": "[VOICE CHARACTER: A 55-year-old male Taiwanese night-market rodeo-game stall owner, calling loudly across a busy outdoor stall. Very low, thick, coarse, gravelly baritone; audible raspy vocal edge, chest resonance and a big diaphragm-supported projection. Rough everyday street delivery, relaxed local swagger, cheeky and friendly. LANGUAGE: Native Taiwan Taiwanese Hokkien / Tai-gi, colloquial southern Taiwan rhythm, natural tone sandhi. Read the Tai-lo romanized script as spoken Taiwanese, never as English syllables. PERFORMANCE: Speak to a player standing at your stall, with punchy consonants and broad, earthy intonation. Maintain the same hefty older male character, even while teasing. Dry solo speech, no background crowd, no music, no added words, do not read instructions. A quick gravelly warning, playful not panicked. 1 to 1.5 seconds.]\nMài hōo i phiàn--khì!",
+      "mastering": "boss_gravel"
+    },
+    "wild": {
+      "voice": "Algenib",
+      "subtitle": "這隻牛發狂矣！",
+      "tailo": "Tsit tsiah gû huat-kông--ah!",
+      "text": "[VOICE CHARACTER: A 55-year-old male Taiwanese night-market rodeo-game stall owner, calling loudly across a busy outdoor stall. Very low, thick, coarse, gravelly baritone; audible raspy vocal edge, chest resonance and a big diaphragm-supported projection. Rough everyday street delivery, relaxed local swagger, cheeky and friendly. LANGUAGE: Native Taiwan Taiwanese Hokkien / Tai-gi, colloquial southern Taiwan rhythm, natural tone sandhi. Read the Tai-lo romanized script as spoken Taiwanese, never as English syllables. PERFORMANCE: Speak to a player standing at your stall, with punchy consonants and broad, earthy intonation. Maintain the same hefty older male character, even while teasing. Dry solo speech, no background crowd, no music, no added words, do not read instructions. A surprised hard-man bark like a comic sports commentator. 1.4 to 2 seconds.]\nTsit tsiah gû huat-kông--ah!",
+      "mastering": "boss_gravel"
+    },
+    "final": {
+      "voice": "Algenib",
+      "subtitle": "最後矣！拚落去！",
+      "tailo": "Tsuè-āu--ah! Piànn lo̍h-khì!",
+      "text": "[VOICE CHARACTER: A 55-year-old male Taiwanese night-market rodeo-game stall owner, calling loudly across a busy outdoor stall. Very low, thick, coarse, gravelly baritone; audible raspy vocal edge, chest resonance and a big diaphragm-supported projection. Rough everyday street delivery, relaxed local swagger, cheeky and friendly. LANGUAGE: Native Taiwan Taiwanese Hokkien / Tai-gi, colloquial southern Taiwan rhythm, natural tone sandhi. Read the Tai-lo romanized script as spoken Taiwanese, never as English syllables. PERFORMANCE: Speak to a player standing at your stall, with punchy consonants and broad, earthy intonation. Maintain the same hefty older male character, even while teasing. Dry solo speech, no background crowd, no music, no added words, do not read instructions. An explosive low-pitched heroic battle cry. Punch each phrase with chest resonance. 1.5 to 2 seconds.]\nTsuè-āu--ah! Piànn lo̍h-khì!",
+      "mastering": "boss_shout"
+    },
+    "lose_air": {
+      "voice": "Algenib",
+      "subtitle": "你是咧飛喔？",
+      "tailo": "Lí sī teh pue--oo?",
+      "text": "[VOICE CHARACTER: A 55-year-old male Taiwanese night-market rodeo-game stall owner, calling loudly across a busy outdoor stall. Very low, thick, coarse, gravelly baritone; audible raspy vocal edge, chest resonance and a big diaphragm-supported projection. Rough everyday street delivery, relaxed local swagger, cheeky and friendly. LANGUAGE: Native Taiwan Taiwanese Hokkien / Tai-gi, colloquial southern Taiwan rhythm, natural tone sandhi. Read the Tai-lo romanized script as spoken Taiwanese, never as English syllables. PERFORMANCE: Speak to a player standing at your stall, with punchy consonants and broad, earthy intonation. Maintain the same hefty older male character, even while teasing. Dry solo speech, no background crowd, no music, no added words, do not read instructions. Mock astonishment, deep gravelly sarcastic question with a tiny grin. 1.2 to 2 seconds.]\nLí sī teh pue--oo?",
+      "mastering": "boss_gravel"
+    },
+    "lose_rest": {
+      "voice": "Algenib",
+      "subtitle": "牛猶未累，你先歇睏！",
+      "tailo": "Gû iáu-buē luī, lí sing hioh-khùn!",
+      "text": "[VOICE CHARACTER: A 55-year-old male Taiwanese night-market rodeo-game stall owner, calling loudly across a busy outdoor stall. Very low, thick, coarse, gravelly baritone; audible raspy vocal edge, chest resonance and a big diaphragm-supported projection. Rough everyday street delivery, relaxed local swagger, cheeky and friendly. LANGUAGE: Native Taiwan Taiwanese Hokkien / Tai-gi, colloquial southern Taiwan rhythm, natural tone sandhi. Read the Tai-lo romanized script as spoken Taiwanese, never as English syllables. PERFORMANCE: Speak to a player standing at your stall, with punchy consonants and broad, earthy intonation. Maintain the same hefty older male character, even while teasing. Dry solo speech, no background crowd, no music, no added words, do not read instructions. A short deadpan roast, amused and friendly, rough street uncle voice. 2 to 3 seconds.]\nGû iáu-buē luī, lí sing hioh-khùn!",
+      "mastering": "boss_gravel"
+    },
+    "win": {
+      "voice": "Algenib",
+      "subtitle": "有夠勇！你過關矣！",
+      "tailo": "Ū-kàu ióng! Lí kuè-kuan--ah!",
+      "text": "[VOICE CHARACTER: A 55-year-old male Taiwanese night-market rodeo-game stall owner, calling loudly across a busy outdoor stall. Very low, thick, coarse, gravelly baritone; audible raspy vocal edge, chest resonance and a big diaphragm-supported projection. Rough everyday street delivery, relaxed local swagger, cheeky and friendly. LANGUAGE: Native Taiwan Taiwanese Hokkien / Tai-gi, colloquial southern Taiwan rhythm, natural tone sandhi. Read the Tai-lo romanized script as spoken Taiwanese, never as English syllables. PERFORMANCE: Speak to a player standing at your stall, with punchy consonants and broad, earthy intonation. Maintain the same hefty older male character, even while teasing. Dry solo speech, no background crowd, no music, no added words, do not read instructions. MAXIMUM ENERGY VICTORY BELLOW, dark raspy chest roar, explosive first word, celebratory knockout announcement. 1.8 to 2.6 seconds.]\nŪ-kàu ióng! Lí kuè-kuan--ah!",
+      "mastering": "boss_shout"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><base href="../"><link rel="stylesheet" href="styles.css"><title>Landing camera fixture</title></head><body><script type="module">
+import {Arena} from './scene.js';
+import {Rodeo} from './model.js';
+const template=new DOMParser().parseFromString(await (await fetch('index.html')).text(),'text/html');
+document.body.append(template.querySelector('main'));
+const $=id=>document.getElementById(id);
+const arena=new Arena($('scene'));await arena.ready;$('asset-status').hidden=true;
+const game=new Rodeo();game.phase='finished';game.time=2.8;game.fallTime=1.6;game.fallDirection=new URLSearchParams(location.search).get('side')==='left'?-1:1;game.angle=game.fallDirection*1.23;
+$('game').dataset.state='finished';$('time').textContent='2.8';$('heading').textContent='撐了 2.8 秒！';$('hint').textContent='牛還沒累，你先下來了。再試一次？';$('primary').textContent='再騎一次';$('secondary').textContent='改用手機傾斜';$('mode-note').textContent='鏡頭驗證場景 · 固定落地狀態';$('balance-pin').style.left=game.fallDirection>0?'98%':'2%';
+new ResizeObserver(()=>{arena.resize();arena.draw(game,0);}).observe($('arena'));arena.draw(game,0);
+</script></body></html>

@@ -1,0 +1,25 @@
+手機終結者 v0.3.0
+專案：/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance
+電腦預覽：http://localhost:8094/
+完整打包：/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance.zip
+
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/index.html
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/styles.css
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/app.js
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/scene.js
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/model.js
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/sensor.js
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/audio.js
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/models/rodeo_characters.blend
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/models/build_rodeo.py
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/models/geometry-audit.json
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/assets/models/bull.glb
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/assets/models/cowboy.glb
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/README.md
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/DESIGN.md
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/docs/VALIDATION.md
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/docs/blender-characters.png
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/tests/assets.test.js
+/Users/chenchunchih/Documents/ChatGPT/遊戲王/cowboy-balance/server.py
+
+手機傾斜需要 HTTPS；尚未公開部署或實體手機測試。

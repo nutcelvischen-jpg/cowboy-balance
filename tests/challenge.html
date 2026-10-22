@@ -1,0 +1,19 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="../"><link rel="stylesheet" href="styles.css"><title>模擬感測器自動通關測試</title></head><body><script type="module">
+// Test-only sensor stub. Production app.js is used unchanged; never deploy this as a game entry.
+const template=new DOMParser().parseFromString(await(await fetch('index.html')).text(),'text/html');
+document.body.append(template.querySelector('main'));
+const note=document.createElement('div');note.textContent='自動測試：模擬傾斜感測器';note.style.cssText='position:fixed;top:0;left:40%;z-index:100;background:#fff0cc;color:#30261e;font:11px sans-serif;padding:4px';document.body.append(note);
+Object.defineProperty(window,'DeviceOrientationEvent',{value:class{static async requestPermission(){return 'granted';}},configurable:true});
+const testStorage=new Map();Object.defineProperty(window,'localStorage',{value:{getItem:key=>testStorage.get(key)??null,setItem:(key,value)=>testStorage.set(key,String(value))},configurable:true});
+let old=0,velocity=0,last=performance.now();
+const interval=setInterval(()=>{
+ const now=performance.now(),dt=Math.min(.05,Math.max(.005,(now-last)/1000));last=now;
+ const active=document.getElementById('game')?.dataset.state==='playing';
+ const angle=active?Number(document.getElementById('balance').getAttribute('aria-valuenow'))/100:0;
+ velocity+=( (angle-old)/dt-velocity)*.25;old=angle;
+ const input=active?Math.max(-1,Math.min(1,-angle*1.6-velocity*.8)):0;
+ const event=new Event('deviceorientation');Object.assign(event,{beta:40,gamma:input*12});window.dispatchEvent(event);
+},16);
+window.addEventListener('pagehide',()=>clearInterval(interval));
+await import('./app.js');
+</script></body></html>

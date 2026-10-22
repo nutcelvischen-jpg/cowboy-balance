@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-22T09:11:37.742507+00:00",
+  "title": "Design System: 手機終結者 · Tilt Rodeo",
+  "extensions": {
+    "colorMeta": {
+      "sky": {
+        "role": "primary",
+        "displayName": "Sky",
+        "tonalRamp": [
+          "oklch(15% 0.0453 201.90)",
+          "oklch(26% 0.0453 201.90)",
+          "oklch(38% 0.0453 201.90)",
+          "oklch(49% 0.0453 201.90)",
+          "oklch(61% 0.0453 201.90)",
+          "oklch(72% 0.0453 201.90)",
+          "oklch(84% 0.0453 201.90)",
+          "oklch(95% 0.0453 201.90)"
+        ]
+      },
+      "sand": {
+        "role": "primary",
+        "displayName": "Sand",
+        "tonalRamp": [
+          "oklch(15% 0.1067 79.18)",
+          "oklch(26% 0.1067 79.18)",
+          "oklch(38% 0.1067 79.18)",
+          "oklch(49% 0.1067 79.18)",
+          "oklch(61% 0.1067 79.18)",
+          "oklch(72% 0.1067 79.18)",
+          "oklch(84% 0.1067 79.18)",
+          "oklch(95% 0.1067 79.18)"
+        ]
+      },
+      "paper": {
+        "role": "primary",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0495 88.08)",
+          "oklch(26% 0.0495 88.08)",
+          "oklch(38% 0.0495 88.08)",
+          "oklch(49% 0.0495 88.08)",
+          "oklch(61% 0.0495 88.08)",
+          "oklch(72% 0.0495 88.08)",
+          "oklch(84% 0.0495 88.08)",
+          "oklch(95% 0.0495 88.08)"
+        ]
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0207 60.45)",
+          "oklch(26% 0.0207 60.45)",
+          "oklch(38% 0.0207 60.45)",
+          "oklch(49% 0.0207 60.45)",
+          "oklch(61% 0.0207 60.45)",
+          "oklch(72% 0.0207 60.45)",
+          "oklch(84% 0.0207 60.45)",
+          "oklch(95% 0.0207 60.45)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15% 0.0434 85.95)",
+          "oklch(26% 0.0434 85.95)",
+          "oklch(38% 0.0434 85.95)",
+          "oklch(49% 0.0434 85.95)",
+          "oklch(61% 0.0434 85.95)",
+          "oklch(72% 0.0434 85.95)",
+          "oklch(84% 0.0434 85.95)",
+          "oklch(95% 0.0434 85.95)"
+        ]
+      },
+      "yellow": {
+        "role": "primary",
+        "displayName": "Action Gold",
+        "tonalRamp": [
+          "oklch(15% 0.1339 89.17)",
+          "oklch(26% 0.1339 89.17)",
+          "oklch(38% 0.1339 89.17)",
+          "oklch(49% 0.1339 89.17)",
+          "oklch(61% 0.1339 89.17)",
+          "oklch(72% 0.1339 89.17)",
+          "oklch(84% 0.1339 89.17)",
+          "oklch(95% 0.1339 89.17)"
+        ]
+      },
+      "red": {
+        "role": "secondary",
+        "displayName": "Red",
+        "tonalRamp": [
+          "oklch(15% 0.1633 31.22)",
+          "oklch(26% 0.1633 31.22)",
+          "oklch(38% 0.1633 31.22)",
+          "oklch(49% 0.1633 31.22)",
+          "oklch(61% 0.1633 31.22)",
+          "oklch(72% 0.1633 31.22)",
+          "oklch(84% 0.1633 31.22)",
+          "oklch(95% 0.1633 31.22)"
+        ]
+      },
+      "safe-zone": {
+        "role": "secondary",
+        "displayName": "Safe Zone",
+        "tonalRamp": [
+          "oklch(15% 0.0749 155.72)",
+          "oklch(26% 0.0749 155.72)",
+          "oklch(38% 0.0749 155.72)",
+          "oklch(49% 0.0749 155.72)",
+          "oklch(61% 0.0749 155.72)",
+          "oklch(72% 0.0749 155.72)",
+          "oklch(84% 0.0749 155.72)",
+          "oklch(95% 0.0749 155.72)"
+        ]
+      },
+      "surround": {
+        "role": "neutral",
+        "displayName": "Surround",
+        "tonalRamp": [
+          "oklch(15% 0.0350 204.45)",
+          "oklch(26% 0.0350 204.45)",
+          "oklch(38% 0.0350 204.45)",
+          "oklch(49% 0.0350 204.45)",
+          "oklch(61% 0.0350 204.45)",
+          "oklch(72% 0.0350 204.45)",
+          "oklch(84% 0.0350 204.45)",
+          "oklch(95% 0.0350 204.45)"
+        ]
+      },
+      "score-backing": {
+        "role": "neutral",
+        "displayName": "Score Backing",
+        "tonalRamp": [
+          "oklch(15% 0.0413 200.24)",
+          "oklch(26% 0.0413 200.24)",
+          "oklch(38% 0.0413 200.24)",
+          "oklch(49% 0.0413 200.24)",
+          "oklch(61% 0.0413 200.24)",
+          "oklch(72% 0.0413 200.24)",
+          "oklch(84% 0.0413 200.24)",
+          "oklch(95% 0.0413 200.24)"
+        ]
+      },
+      "icon-surface": {
+        "role": "neutral",
+        "displayName": "Icon Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0423 202.49)",
+          "oklch(26% 0.0423 202.49)",
+          "oklch(38% 0.0423 202.49)",
+          "oklch(49% 0.0423 202.49)",
+          "oklch(61% 0.0423 202.49)",
+          "oklch(72% 0.0423 202.49)",
+          "oklch(84% 0.0423 202.49)",
+          "oklch(95% 0.0423 202.49)"
+        ]
+      },
+      "icon-hover": {
+        "role": "neutral",
+        "displayName": "Icon Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0527 204.34)",
+          "oklch(26% 0.0527 204.34)",
+          "oklch(38% 0.0527 204.34)",
+          "oklch(49% 0.0527 204.34)",
+          "oklch(61% 0.0527 204.34)",
+          "oklch(72% 0.0527 204.34)",
+          "oklch(84% 0.0527 204.34)",
+          "oklch(95% 0.0527 204.34)"
+        ]
+      },
+      "button-hover": {
+        "role": "neutral",
+        "displayName": "Button Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0971 90.24)",
+          "oklch(26% 0.0971 90.24)",
+          "oklch(38% 0.0971 90.24)",
+          "oklch(49% 0.0971 90.24)",
+          "oklch(61% 0.0971 90.24)",
+          "oklch(72% 0.0971 90.24)",
+          "oklch(84% 0.0971 90.24)",
+          "oklch(95% 0.0971 90.24)"
+        ]
+      },
+      "quiet-ink": {
+        "role": "neutral",
+        "displayName": "Warm Secondary Text",
+        "tonalRamp": [
+          "oklch(15% 0.0530 85.08)",
+          "oklch(26% 0.0530 85.08)",
+          "oklch(38% 0.0530 85.08)",
+          "oklch(49% 0.0530 85.08)",
+          "oklch(61% 0.0530 85.08)",
+          "oklch(72% 0.0530 85.08)",
+          "oklch(84% 0.0530 85.08)",
+          "oklch(95% 0.0530 85.08)"
+        ]
+      },
+      "warning-ink": {
+        "role": "neutral",
+        "displayName": "Warning Ink",
+        "tonalRamp": [
+          "oklch(15% 0.1302 32.22)",
+          "oklch(26% 0.1302 32.22)",
+          "oklch(38% 0.1302 32.22)",
+          "oklch(49% 0.1302 32.22)",
+          "oklch(61% 0.1302 32.22)",
+          "oklch(72% 0.1302 32.22)",
+          "oklch(84% 0.1302 32.22)",
+          "oklch(95% 0.1302 32.22)"
+        ]
+      },
+      "bull": {
+        "role": "secondary",
+        "displayName": "Bull",
+        "tonalRamp": [
+          "oklch(15% 0.0874 42.04)",
+          "oklch(26% 0.0874 42.04)",
+          "oklch(38% 0.0874 42.04)",
+          "oklch(49% 0.0874 42.04)",
+          "oklch(61% 0.0874 42.04)",
+          "oklch(72% 0.0874 42.04)",
+          "oklch(84% 0.0874 42.04)",
+          "oklch(95% 0.0874 42.04)"
+        ]
+      },
+      "rider-shirt": {
+        "role": "secondary",
+        "displayName": "Rider Shirt",
+        "tonalRamp": [
+          "oklch(15% 0.1372 59.90)",
+          "oklch(26% 0.1372 59.90)",
+          "oklch(38% 0.1372 59.90)",
+          "oklch(49% 0.1372 59.90)",
+          "oklch(61% 0.1372 59.90)",
+          "oklch(72% 0.1372 59.90)",
+          "oklch(84% 0.1372 59.90)",
+          "oklch(95% 0.1372 59.90)"
+        ]
+      },
+      "rider-pants": {
+        "role": "secondary",
+        "displayName": "Rider Pants",
+        "tonalRamp": [
+          "oklch(15% 0.0676 230.88)",
+          "oklch(26% 0.0676 230.88)",
+          "oklch(38% 0.0676 230.88)",
+          "oklch(49% 0.0676 230.88)",
+          "oklch(61% 0.0676 230.88)",
+          "oklch(72% 0.0676 230.88)",
+          "oklch(84% 0.0676 230.88)",
+          "oklch(95% 0.0676 230.88)"
+        ]
+      },
+      "rider-hat": {
+        "role": "secondary",
+        "displayName": "Rider Hat",
+        "tonalRamp": [
+          "oklch(15% 0.1031 77.93)",
+          "oklch(26% 0.1031 77.93)",
+          "oklch(38% 0.1031 77.93)",
+          "oklch(49% 0.1031 77.93)",
+          "oklch(61% 0.1031 77.93)",
+          "oklch(72% 0.1031 77.93)",
+          "oklch(84% 0.1031 77.93)",
+          "oklch(95% 0.1031 77.93)"
+        ]
+      },
+      "bandana": {
+        "role": "secondary",
+        "displayName": "Bandana",
+        "tonalRamp": [
+          "oklch(15% 0.1648 30.40)",
+          "oklch(26% 0.1648 30.40)",
+          "oklch(38% 0.1648 30.40)",
+          "oklch(49% 0.1648 30.40)",
+          "oklch(61% 0.1648 30.40)",
+          "oklch(72% 0.1648 30.40)",
+          "oklch(84% 0.1648 30.40)",
+          "oklch(95% 0.1648 30.40)"
+        ]
+      },
+      "deck": {
+        "role": "primary",
+        "displayName": "Deep Teal Deck",
+        "tonalRamp": [
+          "oklch(15% 0.0413 200.24)",
+          "oklch(26% 0.0413 200.24)",
+          "oklch(38% 0.0413 200.24)",
+          "oklch(49% 0.0413 200.24)",
+          "oklch(61% 0.0413 200.24)",
+          "oklch(72% 0.0413 200.24)",
+          "oklch(84% 0.0413 200.24)",
+          "oklch(95% 0.0413 200.24)"
+        ]
+      },
+      "touch-surface": {
+        "role": "neutral",
+        "displayName": "Touch Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0452 199.76)",
+          "oklch(26% 0.0452 199.76)",
+          "oklch(38% 0.0452 199.76)",
+          "oklch(49% 0.0452 199.76)",
+          "oklch(61% 0.0452 199.76)",
+          "oklch(72% 0.0452 199.76)",
+          "oklch(84% 0.0452 199.76)",
+          "oklch(95% 0.0452 199.76)"
+        ]
+      },
+      "rider-vest": {
+        "role": "secondary",
+        "displayName": "Rider Vest",
+        "tonalRamp": [
+          "oklch(15% 0.0545 204.11)",
+          "oklch(26% 0.0545 204.11)",
+          "oklch(38% 0.0545 204.11)",
+          "oklch(49% 0.0545 204.11)",
+          "oklch(61% 0.0545 204.11)",
+          "oklch(72% 0.0545 204.11)",
+          "oklch(84% 0.0545 204.11)",
+          "oklch(95% 0.0545 204.11)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Western countdown",
+        "purpose": "Rye countdown; the lockup uses a smaller Rye size."
+      },
+      "headline": {
+        "displayName": "State headline",
+        "purpose": "Short Chinese instructions; state and viewport variants are documented in DESIGN.md."
+      },
+      "body": {
+        "displayName": "Control hint",
+        "purpose": "Readable supporting Chinese instructions."
+      },
+      "label": {
+        "displayName": "Balance caption",
+        "purpose": "Balance direction and grip percentage."
+      },
+      "button": {
+        "displayName": "Primary action",
+        "purpose": "Entry, retry, calibration, and resume."
+      },
+      "score": {
+        "displayName": "Survival timer",
+        "purpose": "Tabular time with responsive size variants."
+      },
+      "logotype": {
+        "displayName": "Stacked western logotype",
+        "purpose": "Two-line TILT / RODEO; 24px base, 32px wide, 20px compact, 18px short landscape."
+      }
+    },
+    "shadows": [
+      {
+        "name": "action",
+        "value": "0 6px 16px #071e2055",
+        "purpose": "Primary and resume actions."
+      },
+      {
+        "name": "deck",
+        "value": "0 -8px 24px #102a2d26",
+        "purpose": "Overlapping portrait control deck."
+      },
+      {
+        "name": "cue",
+        "value": "0 5px 14px #00000026",
+        "purpose": "Directional warning cue."
+      },
+      {
+        "name": "pin",
+        "value": "0 2px 5px #0005",
+        "purpose": "Balance marker."
+      },
+      {
+        "name": "countdown",
+        "value": "0 5px 15px #0000004d",
+        "purpose": "Countdown text; removed for reduced motion."
+      }
+    ],
+    "motion": [
+      {
+        "name": "action-transition",
+        "value": "background .15s, transform .15s",
+        "purpose": "Primary and resume hover/press."
+      },
+      {
+        "name": "button-press",
+        "value": "translateY(2px)",
+        "purpose": "Primary and resume active press."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Suppresses bounce, dust, CSS transitions and countdown shadow; essential lean, fall and reframing remain."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "(min-width:700px) and (min-height:561px)"
+      },
+      {
+        "name": "compact-height",
+        "value": "(max-height:720px)"
+      },
+      {
+        "name": "short-landscape",
+        "value": "(orientation:landscape) and (max-height:560px)"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Entry, calibration, or retry action.",
+      "html": "<button class=\"ds-primary\">啟用手機傾斜</button>",
+      "css": ".ds-primary{font-family:-apple-system, BlinkMacSystemFont, \"Noto Sans TC\", \"PingFang TC\", sans-serif;cursor:pointer;width:100%;min-height:56px;border:0;border-radius:12px;background:var(--yellow,#ffd76b);color:var(--ink,#30261e);font-size:17px;font-weight:800;box-shadow:0 6px 16px #071e2055}.ds-primary:hover{background:#ffe49a}.ds-primary:active{transform:translateY(2px)}.ds-primary:focus-visible{outline:3px solid var(--paper,#fff0cc);outline-offset:4px}.ds-primary:disabled{cursor:default;opacity:.45}.ds-primary{transition:background .15s,transform .15s}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+    },
+    {
+      "name": "Resume action",
+      "kind": "button",
+      "refersTo": "button-resume",
+      "description": "Yellow action on the pause scrim.",
+      "html": "<div class=\"ds-pause\"><button class=\"ds-resume\">繼續挑戰</button></div>",
+      "css": ".ds-resume{font-family:-apple-system, BlinkMacSystemFont, \"Noto Sans TC\", \"PingFang TC\", sans-serif;cursor:pointer;width:100%;min-height:56px;border:0;border-radius:12px;background:var(--yellow,#ffd76b);color:var(--ink,#30261e);font-size:17px;font-weight:800;box-shadow:0 6px 16px #071e2055}.ds-resume:hover{background:#ffe49a}.ds-resume:active{transform:translateY(2px)}.ds-resume:focus-visible{outline:3px solid var(--paper,#fff0cc);outline-offset:4px}.ds-resume:disabled{cursor:default;opacity:.45}.ds-pause{background:rgba(17,46,48,.97);padding:24px}.ds-resume{transition:background .15s,transform .15s}@media(prefers-reduced-motion:reduce){.ds-resume{transition:none}}"
+    },
+    {
+      "name": "Secondary action",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Underlined fallback or alternate control mode.",
+      "html": "<div class=\"ds-deck\"><button class=\"ds-secondary\">先用觸控／方向鍵試玩</button></div>",
+      "css": ".ds-secondary{font-family:-apple-system, BlinkMacSystemFont, \"Noto Sans TC\", \"PingFang TC\", sans-serif;cursor:pointer;display:block;width:100%;min-height:44px;border:0;background:transparent;color:#e1cfaa;text-decoration:underline;text-underline-offset:4px;font-size:12px}.ds-secondary:hover{color:var(--paper,#fff0cc)}.ds-secondary:focus-visible{outline:3px solid var(--yellow,#ffd76b);outline-offset:4px}.ds-secondary:disabled{cursor:default;opacity:.45}.ds-deck{background:var(--deck,#183c3e);padding:12px}"
+    },
+    {
+      "name": "Icon control",
+      "kind": "button",
+      "refersTo": "button-icon",
+      "description": "Pause and sound controls; this preview shows pause.",
+      "html": "<button class=\"ds-icon\" aria-label=\"暫停遊戲\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 5v14M16 5v14\"/></svg></button>",
+      "css": ".ds-icon{font-family:-apple-system, BlinkMacSystemFont, \"Noto Sans TC\", \"PingFang TC\", sans-serif;cursor:pointer;display:grid;place-items:center;width:44px;height:44px;background:#193e41;border:1px solid #718d89;color:var(--paper,#fff0cc);border-radius:50%}.ds-icon:hover{background:#326267}.ds-icon:focus-visible{outline:3px solid #ffd76b;outline-offset:4px}.ds-icon[aria-pressed=\"true\"]{color:#e4af71}.ds-icon:disabled{cursor:default;opacity:.45}.ds-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}"
+    },
+    {
+      "name": "Touch control",
+      "kind": "button",
+      "refersTo": "button-touch",
+      "description": "Hold to move the rider left or right.",
+      "html": "<button class=\"ds-touch\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m14 5-7 7 7 7\"/></svg>向左</button>",
+      "css": ".ds-touch{font-family:-apple-system, BlinkMacSystemFont, \"Noto Sans TC\", \"PingFang TC\", sans-serif;cursor:pointer;min-width:88px;min-height:58px;border:1px solid #768d7e;border-radius:12px;background:#285052;display:flex;justify-content:center;align-items:center;color:var(--paper,#fff0cc);font-weight:800;touch-action:none;user-select:none}.ds-touch:active,.ds-touch.held{background:var(--yellow,#ffd76b);color:var(--ink,#30261e)}.ds-touch:focus-visible{outline:3px solid var(--yellow,#ffd76b);outline-offset:4px}.ds-touch svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}"
+    },
+    {
+      "name": "Balance meter",
+      "kind": "custom",
+      "refersTo": "balance-meter",
+      "description": "Static centered preview of the live balance indicator.",
+      "html": "<div class=\"ds-meter\" role=\"meter\" aria-label=\"牛仔左右重心\" aria-valuemin=\"-100\" aria-valuemax=\"100\" aria-valuenow=\"0\"><span class=\"ds-safe\"></span><span class=\"ds-center\"></span><span class=\"ds-ticks\"></span><span class=\"ds-pin\"></span></div>",
+      "css": ".ds-meter{box-sizing:border-box;height:16px;border-radius:8px;background:#955137;border:2px solid #092d30;position:relative;margin:8px 0}.ds-safe{position:absolute;left:30%;width:40%;top:0;bottom:0;background:#629675;border-radius:3px}.ds-center{position:absolute;left:50%;top:0;bottom:0;width:1px;background:#e6d7ae}.ds-pin{box-sizing:border-box;position:absolute;top:-5px;left:50%;width:10px;height:22px;background:#fff5df;border:2px solid #30261e;border-radius:4px;box-shadow:0 2px 5px #0005;transform:translateX(-50%)}.ds-meter[data-danger=\"true\"]{background:#b43826}.ds-ticks{position:absolute;inset:3px 10%;border-left:1px solid #fff0cc80;border-right:1px solid #fff0cc80}"
+    },
+    {
+      "name": "Warning cue",
+      "kind": "custom",
+      "refersTo": "warning-cue",
+      "description": "Directional announcement before a buck.",
+      "html": "<div class=\"ds-cue\">準備往右甩！</div>",
+      "css": ".ds-cue{font-family:-apple-system, BlinkMacSystemFont, \"Noto Sans TC\", \"PingFang TC\", sans-serif;display:inline-block;background:#fff0cc;color:#822715;padding:10px 18px;border-radius:8px;font-size:15px;font-weight:800;white-space:nowrap;box-shadow:0 5px 14px #00000026}"
+    },
+    {
+      "name": "Score groups",
+      "kind": "custom",
+      "refersTo": "score-compact",
+      "description": "Separate score backings at every viewport size; this preview shows compact height.",
+      "html": "<div class=\"ds-score\"><div class=\"ds-score-time\"><span>存活時間</span><strong>0.0<small>秒</small></strong></div><p>最佳 0.0 秒<span class=\"ds-level\">熱身牛仔</span></p></div>",
+      "css": ".ds-score{font-family:-apple-system, BlinkMacSystemFont, \"Noto Sans TC\", \"PingFang TC\", sans-serif;display:flex;align-items:flex-start;justify-content:space-between;color:#fff0cc;gap:24px}.ds-score-time,.ds-score>p{background:#183c3ef2;padding:6px 9px;border-radius:10px}.ds-score-time>span{font-size:11px;letter-spacing:.08em;color:#e1cfaa}.ds-score strong{display:block;line-height:1.15;font-size:29px;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums}.ds-score small{font:11px sans-serif;letter-spacing:0;margin-left:5px}.ds-score p{font-size:11px;line-height:1.4;text-align:right;font-variant-numeric:tabular-nums;margin:0}.ds-level{display:block;margin-top:6px;color:#ffd76b;font-size:11px;font-weight:700}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Live County-Fair Rodeo Ring",
+    "overview": "The live county-fair rodeo ring is the visual north star: a teal desert horizon, ochre arena, walnut bull, and orange-shirted rider with a red bandana. Large, readable silhouettes and brief Traditional Chinese instructions make the relationship between phone tilt and rider balance visible.\n\nThis documents the user-authorized v0.2 art refinement of the playable prototype. Original Blender-built, articulated characters replace the initial procedural cast: 52 bull meshes and 66 cowboy meshes, exported as separate GLBs. Rounded, smooth character surfaces and a closer three-quarter view give the rider more presence; the faceted desert remains simple. A stacked, self-hosted Rye logotype and gold action sit above and below the arena, with clear Chinese control copy on a deep teal deck.\n\nCharacter provenance is retained in `models/build_rodeo.py`, `models/rodeo_characters.blend`, and `models/geometry-audit.json`; the runtime loads `assets/models/bull.glb` and `assets/models/cowboy.glb`. `docs/blender-characters.png` is a Blender render; the other PNGs in `docs/` are browser validation captures, not runtime raster assets. The reference Cowboy Jumper cover is not used as a game asset. Rye is supplied locally with its OFL license. Gameplay and sensor handling are unchanged by this art revision.\n\nFinish review disposition: **ship**, with no material visual fixes remaining. The sole follow-up issue, right-side fall clipping, is resolved. `docs/landings.png` records complete left and right landing endpoints at 390×844, 320×568, and 844×390; the intermediate camera logic was inspected in code, not verified through a full motion recording. `docs/VALIDATION.md` records browser viewport and interaction checks; these do not establish physical-device behavior. Real-device gyro permission, tilt direction, and feel remain unverified. Loading-failure handling is present in code but has not been exhaustively tested by interrupting individual asset requests.",
+    "keyCharacteristics": [
+      "The arena leads; controls remain compact and reachable.",
+      "Warm sand and dark teal establish place; cream text and gold actions establish hierarchy.",
+      "Balance, warning copy, and rider lean communicate the same state.",
+      "Articulated, rounded characters sit behind restrained interface surfaces."
+    ],
+    "rules": [
+      {
+        "name": "The Signal Agreement Rule",
+        "body": "Color never carries the balance state alone: the marker position, directional instruction, and rider lean must agree.",
+        "section": "colors"
+      },
+      {
+        "name": "The Functional Type Floor Rule",
+        "body": "Keep all functional interface text at 11px or larger, including compact and landscape labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Clear Center Rule",
+        "body": "Keep the rider's central silhouette open: compact score backings belong to the separate left and right score groups, never their full-width parent.",
+        "section": "layout"
+      }
+    ],
+    "dos": [
+      "Do preserve the implemented teal, sand, cream, gold, and walnut relationship.",
+      "Do use Rye for the stacked English logotype and countdown; keep Chinese instructions in the system sans-serif.",
+      "Do keep separate score backings around each score group so the center stays open.",
+      "Do pair the danger color with directional copy and a visible moving marker.",
+      "Do preserve safe-area padding, visible focus rings, 44px or larger action targets, and the 11px functional type floor.",
+      "Do retain the editable Blender source, named animation pivots, and paired character-loading fallback."
+    ],
+    "donts": [
+      "Don't present the reference cover as approved art or as a shipped game asset.",
+      "Don't replace the playable arena with promotional panels or dashboard cards.",
+      "Don't expand the score backing into a full-width strip over the rider.",
+      "Don't describe reduced motion as disabling all scene movement; bounce and dust are suppressed while essential feedback remains.",
+      "Don't describe browser viewport checks or simulated sensor tests as physical-phone gyro validation."
+    ]
+  }
+}
